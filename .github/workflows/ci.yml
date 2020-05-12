@@ -37,5 +37,7 @@ jobs:
     - name: test
       run: |
         cd build
-        tree /f
+        tree /f /a
+        msbuild tests.vcxproj
+        cd debug
         ./tests
