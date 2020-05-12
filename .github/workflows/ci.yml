@@ -33,11 +33,9 @@ jobs:
         cd build
         cmake ..
     - name: build
-      run: cmake --build build
+      run: cmake --build build --target tests
     - name: test
       run: |
         cd build
-        tree /f /a
-        msbuild tests.vcxproj
         cd debug
         ./tests
