@@ -37,4 +37,5 @@ jobs:
     - name: test
       run: |
         cd build
+        tree /f
         ./tests
