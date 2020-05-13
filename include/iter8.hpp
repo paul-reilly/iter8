@@ -10,19 +10,26 @@ namespace iter8
     template<typename Container>
     struct Iter 
     {
+        static_assert(has_iterators<Container>{}, "Iter requires a container with iterators.");
         using Containee = typename std::remove_reference_t<decltype(std::declval<Container>().front())>;
 
         Iter(Container& c) : _begin{ c.begin() }, _end{ c.end() }, _it{ c.begin() }
-        {
-            static_assert(has_iterators<Container>{}, "Iter requires a container with iterators.");
+        { 
         }
         auto next() 
           -> std::optional<std::reference_wrapper<Containee>>
         {
             if (_it != _end)
                 return *(_it++);
-            else
-                _it = _begin;
+
+            return {};
+        }
+        auto prev()
+            -> std::optional<std::reference_wrapper<Containee>>
+        {
+            if (_it != _begin)
+                return *(_it--);
+        
             return {};
         }
         auto reset()
