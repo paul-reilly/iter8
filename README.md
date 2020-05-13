@@ -4,7 +4,7 @@
 
 ## a simple, single iterator for C++17+
 
-Providing simple `next` and `prev` functionality, iter8 makes use of `std::optional` to allow
+Providing simple `next` functionality, iter8 makes use of `std::optional` to allow
 safely attempting to iterate beyond the end of a container bounds without use of exceptions.
 
 ### Example:
