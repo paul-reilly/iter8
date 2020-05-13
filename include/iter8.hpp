@@ -24,14 +24,6 @@ namespace iter8
 
             return {};
         }
-        auto prev()
-            -> std::optional<std::reference_wrapper<Containee>>
-        {
-            if (_it != _begin)
-                return *(_it--);
-        
-            return {};
-        }
         auto reset()
         {
             _it = _begin;
